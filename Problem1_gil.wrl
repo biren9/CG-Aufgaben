@@ -1,0 +1,99 @@
+#VRML v2.0 utf8
+#Bott, Biren, Testault
+
+DirectionalLight {
+  direction 0 -1 0
+}
+
+
+DEF Arm_Leg Group {
+	children [
+		Transform {
+			translation -3 2 0
+			children [
+				DEF head Shape {
+					appearance Appearance {
+						material Material {diffuseColor 1 1 0}
+					}
+					geometry Sphere {
+						
+					}
+				}
+			]
+		}
+
+		Transform {
+			translation -3 0 0 
+			children [
+				DEF body Shape {
+					appearance Appearance {
+						material Material {diffuseColor 1 1 0}
+					}
+					geometry Cylinder {
+						height 4
+						bottom FALSE
+						side TRUE
+						top FALSE
+					}
+				}
+			]
+		}
+
+		Transform {
+			translation -3 -2 0
+			children [
+				USE head,
+			]
+		}
+	]
+}
+
+DEF Body Group {
+children [
+		Transform {
+			translation 0 14 0
+			children [
+				DEF head Shape {
+					appearance Appearance {
+						material Material {diffuseColor 1 1 0}
+					}
+					geometry Sphere {
+						radius 5
+					}
+				}
+			]
+		}
+
+		Transform {
+			translation 0 10 0 
+			children [
+				DEF body Shape {
+					appearance Appearance {
+						material Material {diffuseColor 1 1 0}
+					}
+					geometry Cylinder {
+						height 8
+						radius 5
+						bottom FALSE
+						side TRUE
+						top FALSE
+					}
+				}
+			]
+		}
+
+		Transform {
+			translation 0 6 0
+			children [
+				USE head,
+			]
+		}
+	]
+}
+
+Transform {
+	translation 6 0 0
+	children [
+		USE Arm_Leg,
+	]
+}
