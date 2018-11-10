@@ -1,6 +1,12 @@
 #VRML v2.0 utf8
 #Bott, Biren, Testault
 
+Background {
+	groundColor [0.466, 0.733, 0.164, 0.466, 0.733, 0.164]
+	groundAngle [3.14, 1.57]
+	skyColor [0.129, 0.396, 0.815]
+}
+
 DirectionalLight {
   direction 0 -1 0
 }
@@ -8,6 +14,7 @@ DirectionalLight {
 DEF Minion Group {
 	children [
 		Transform {
+			rotation 0 1 0 0.4
 			translation 0 0 -70
 			children [
 				#Unterleib
@@ -41,7 +48,7 @@ DEF Minion Group {
 							appearance USE MinionAppearance
 							geometry Cylinder {
 								height 20
-								radius 8
+								radius 8.01
 								bottom FALSE
 								side TRUE
 								top FALSE
@@ -70,7 +77,14 @@ DEF Minion Group {
 									children [
 										#Hand
 										Shape {
-											appearance USE MinionAppearance
+											appearance DEF LeaderAppearance Appearance {
+												material Material {
+													ambientIntensity  0.2
+													diffuseColor      0.01 0.01 0.01
+													specularColor     0.4 0.4 0.4
+													shininess         10
+												}
+											}
 											geometry Sphere {
 												radius 1.4
 											}
@@ -83,7 +97,7 @@ DEF Minion Group {
 													children [
 														#Finger
 														Shape {
-															appearance USE MinionAppearance
+															appearance USE LeaderAppearance
 															geometry Cylinder {
 																height 2
 																radius 0.4
@@ -97,7 +111,7 @@ DEF Minion Group {
 															translation 0 1 0
 															children [
 																Shape {
-																	appearance USE MinionAppearance
+																	appearance USE LeaderAppearance
 																	geometry Sphere {
 																		radius 0.4
 																	}
@@ -138,7 +152,79 @@ DEF Minion Group {
 					]
 				}
 
+				#Bein Rechts (Sicht des Minion)
+				Transform {
+					translation -3 -9 0
+					children [
+						DEF Bein Group {
+							children [
+								Shape {
+									appearance USE MinionAppearance
+									geometry Cylinder {
+										radius 1.4
+										height 5
+									}
+								}
+								Group {
+									children [
+										Transform {
+											translation 0 -1 0
+											children [
+												Shape {
+													appearance USE LeaderAppearance
+													geometry Cylinder {
+														radius 1.5
+														height 3
+													}
+												}
+											]
+										}
+										Transform {
+											translation 0 -1.4 2
+											rotation 1 0 0 1.57
+											children [
+												#Schuh
+												Group {
+													children [
+														Shape {
+															appearance USE LeaderAppearance
+															geometry Cylinder {
+																radius 1.4
+																height 4
+																bottom FALSE
+																side TRUE
+																top FALSE
+															}
+														}
+														Transform {
+															translation 0 2 0
+															children [
+																Shape {
+																	appearance USE LeaderAppearance
+																	geometry Sphere {
+																		radius 1.4
+																	}
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
 
+				#Bein Links (Sicht des Minion)
+				Transform {
+					translation 3 -9 0
+					children [
+						USE Bein
+					]
+				}
 
 
 
