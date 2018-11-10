@@ -14,7 +14,7 @@ DirectionalLight {
 DEF Minion Group {
 	children [
 		Transform {
-			rotation 1 0 0 0.7
+			rotation 1 0 0 0.2
 			translation 0 -20 -70
 			children [
 				#Kopf
@@ -37,7 +37,7 @@ DEF Minion Group {
 								DEF Haar Group {
 									children [
 										Shape {
-											appearance DEF LeaderAppearance Appearance {
+											appearance DEF HairAppearance Appearance {
 												material Material {
 													ambientIntensity  0.0
 													diffuseColor      0.01 0.01 0.01
@@ -118,6 +118,19 @@ DEF Minion Group {
 								side TRUE
 								top FALSE
 							}
+						}
+						Transform {
+							translation 0 0 8.95
+							rotation 1 0 0 1.57
+							children [
+								Shape {
+									appearance USE HairAppearance
+									geometry Cylinder {
+										height 0.1
+										radius 1.5
+									}
+								}
+							]
 						}
 					]
 				}
