@@ -57,6 +57,87 @@ DEF Minion Group {
 					]
 				}
 
+				#Brille + Augen
+				Transform {
+					translation 0 18 0
+					children [
+						Shape {
+							appearance DEF LeaderAppearance Appearance {
+								material Material {
+									ambientIntensity  0.2
+									diffuseColor      0.01 0.01 0.01
+									specularColor     0.4 0.4 0.4
+									shininess         10
+								}
+							}
+							geometry Cylinder {
+								height 2
+								radius 8.5
+							}
+						}
+
+						#Auge
+						Transform {
+							translation -3 0 8
+							children [
+								DEF Auge Group {
+									children [
+										Transform {
+											rotation 1 0 0 1.57
+											children [
+												#Brille Rahmen
+												Shape {
+													appearance Appearance {
+														material Material {
+															ambientIntensity  0.25
+															diffuseColor      0.4 0.4 0.4
+															specularColor     0.774597 0.774597 0.774597
+															shininess         76.8
+														}
+													}
+													geometry Cylinder {
+														height 3
+														radius 2
+													}
+												}
+
+												#Auge
+												Transform {
+													translation 0 1.49 0
+													children [
+														Shape {
+															appearance Appearance {
+																material Material {}
+																texture ImageTexture {
+																	url "./eye.png"
+																	repeatS FALSE
+																	repeatT FALSE
+																}
+															}
+															geometry Cylinder {
+																height 0.05
+																radius 1.8
+															}
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+
+						Transform {
+							translation 3 0 8
+							children [
+								USE Auge
+							]
+						}
+
+					]
+				}
+
 				#Arm Links (Sicht des Minion)
 				Transform {
 					translation 11 8 0
@@ -77,14 +158,7 @@ DEF Minion Group {
 									children [
 										#Hand
 										Shape {
-											appearance DEF LeaderAppearance Appearance {
-												material Material {
-													ambientIntensity  0.2
-													diffuseColor      0.01 0.01 0.01
-													specularColor     0.4 0.4 0.4
-													shininess         10
-												}
-											}
+											appearance USE LeaderAppearance
 											geometry Sphere {
 												radius 1.4
 											}
