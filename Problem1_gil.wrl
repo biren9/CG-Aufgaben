@@ -5,95 +5,145 @@ DirectionalLight {
   direction 0 -1 0
 }
 
-
-DEF Arm_Leg Group {
+DEF Minion Group {
 	children [
 		Transform {
-			translation -3 2 0
+			translation 0 0 -70
 			children [
-				DEF head Shape {
-					appearance Appearance {
-						material Material {diffuseColor 1 1 0}
-					}
-					geometry Sphere {
-						
-					}
+				#Unterleib
+				Transform {
+					translation 0 0 0
+					children [
+						DEF KoerperKugel Shape {
+							appearance DEF MinionAppearance Appearance {
+								material Material {diffuseColor 0.9960784314 0.831372549 0.3647058824}
+							}
+							geometry Sphere {
+								radius 8
+							}
+						}
+					]
 				}
-			]
-		}
 
-		Transform {
-			translation -3 0 0 
-			children [
-				DEF body Shape {
-					appearance Appearance {
-						material Material {diffuseColor 1 1 0}
-					}
-					geometry Cylinder {
-						height 4
-						bottom FALSE
-						side TRUE
-						top FALSE
-					}
+				#Kopf
+				Transform {
+					translation 0 20 0
+					children [
+						USE KoerperKugel
+					]
 				}
-			]
-		}
 
-		Transform {
-			translation -3 -2 0
-			children [
-				USE head,
-			]
-		}
-	]
-}
-
-DEF Body Group {
-children [
-		Transform {
-			translation 0 14 0
-			children [
-				DEF head Shape {
-					appearance Appearance {
-						material Material {diffuseColor 1 1 0}
-					}
-					geometry Sphere {
-						radius 5
-					}
+				#Bauch
+				Transform {
+					translation 0 10 0
+					children [
+						Shape {
+							appearance USE MinionAppearance
+							geometry Cylinder {
+								height 20
+								radius 8
+								bottom FALSE
+								side TRUE
+								top FALSE
+							}
+						}
+					]
 				}
-			]
-		}
 
-		Transform {
-			translation 0 10 0 
-			children [
-				DEF body Shape {
-					appearance Appearance {
-						material Material {diffuseColor 1 1 0}
-					}
-					geometry Cylinder {
-						height 8
-						radius 5
-						bottom FALSE
-						side TRUE
-						top FALSE
-					}
+				#Arm Links (Sicht des Minion)
+				Transform {
+					translation 11 8 0
+					rotation 0 0 1 5.5
+					children [
+						DEF Arm Group {
+							children [
+								#Arm
+								Shape {
+									appearance USE MinionAppearance
+									geometry Cylinder {
+										height 12
+										radius 1
+									}
+								}
+								Transform {
+									translation 0 6 0
+									children [
+										#Hand
+										Shape {
+											appearance USE MinionAppearance
+											geometry Sphere {
+												radius 1.4
+											}
+										}
+										#Finger
+										Transform {
+											translation 0 2 0
+											children [
+												DEF Finger Group {
+													children [
+														#Finger
+														Shape {
+															appearance USE MinionAppearance
+															geometry Cylinder {
+																height 2
+																radius 0.4
+																bottom FALSE
+																side TRUE
+																top FALSE
+															}
+														}
+														#FingerKuppe
+														Transform {
+															translation 0 1 0
+															children [
+																Shape {
+																	appearance USE MinionAppearance
+																	geometry Sphere {
+																		radius 0.4
+																	}
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+										Transform {
+											translation -1.5 1.5 0
+											rotation 0 0 1 0.6
+											children [
+												USE Finger
+											]
+										}
+										Transform {
+											translation 1.5 1.5 0
+											rotation 0 0 1 5.68
+											children [
+												USE Finger
+											]
+										}
+									]
+								}
+							]
+						}
+					]
 				}
+
+				#Arm Rechts (Sicht des Minion)
+				Transform {
+					translation -11 8 0
+					rotation 0 0 1 0.79
+					children [
+						USE Arm
+					]
+				}
+
+
+
+
+
+
 			]
 		}
-
-		Transform {
-			translation 0 6 0
-			children [
-				USE head,
-			]
-		}
-	]
-}
-
-Transform {
-	translation 6 0 0
-	children [
-		USE Arm_Leg,
 	]
 }
