@@ -119,12 +119,17 @@ DEF Minion Group {
 								top FALSE
 							}
 						}
+						# Mund
 						Transform {
 							translation 0 0 8.95
 							rotation 1 0 0 1.57
 							children [
 								Shape {
-									appearance USE HairAppearance
+									appearance Appearance {
+										material Material {
+											diffuseColor 0 0 0
+										}
+									}
 									geometry Cylinder {
 										height 0.1
 										radius 1.5
