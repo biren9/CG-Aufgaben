@@ -86,6 +86,7 @@ DEF Minion Group {
 					]
 				}
 
+
 				#Unterleib
 				Transform {
 					translation 0 0 0
@@ -109,7 +110,7 @@ DEF Minion Group {
 				Transform {
 					translation 0 10 0
 					children [
-						Shape {
+						DEF Bauch Shape {
 							appearance USE MinionAppearance
 							geometry Cylinder {
 								height 20
@@ -124,7 +125,7 @@ DEF Minion Group {
 							translation 0 0 8.95
 							rotation 1 0 0 1.57
 							children [
-								Shape {
+								DEF Mund Shape {
 									appearance Appearance {
 										material Material {
 											diffuseColor 0 0 0
@@ -144,7 +145,7 @@ DEF Minion Group {
 				Transform {
 					translation 0 18 0
 					children [
-						Shape {
+						DEF Brille Shape {
 							appearance DEF LeaderAppearance Appearance {
 								material Material {
 									ambientIntensity  0.2
@@ -383,8 +384,88 @@ DEF Minion Group {
 				}
 
 
-
-
+				#MINION2 ANFANG --------------------------------------------
+				Transform {
+					translation 40 10 0
+					children [
+						USE Kopf
+					]
+				}
+				#Auge Cyclop
+				Transform {
+					scale 2 2 2
+					translation 40 13 6
+					children [
+						USE Auge
+					]
+				}
+				Transform {
+					translation 40 13 0
+					children [
+						USE Brille
+					]
+				}
+				Transform {
+					scale 0.7 0.7 0.7
+					translation 49 5 3
+					rotation 0 0 1 -2
+					children [
+						USE Arm
+					]
+				}
+				Transform {
+					scale 0.7 0.7 0.7
+					translation 30 5 3
+					rotation 0 0 1 2
+					children [
+						USE Arm
+					]
+				}
+				Transform {
+					scale 1 0.5 1
+					translation 40 5 0
+					children [
+						USE Bauch
+					]
+				}
+				Transform {
+					translation 40 0 0
+					children [
+						USE Unterleib
+					]
+				}
+				#Bein Links
+				Transform {
+					translation 37 -8 0
+					children [
+						USE Bein
+					]
+				}
+				#Bein Rechts
+				Transform {
+					translation 43 -8 0
+					children [
+						USE Bein
+					]
+				}
+				#Mund
+				Transform {
+					scale 2 1 0.3
+					rotation 1 0 0 1.57
+					translation 40 7 8
+					children [
+						USE Mund
+					]
+				}
+				#Haare
+				Transform {
+					scale 1.3 1.3 1.3
+					translation 40 20 0
+					children [
+						USE Haar
+					]
+				}
+				#MINION2 ENDE ------------------------------------------
 			]
 		}
 	]
