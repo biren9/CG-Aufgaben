@@ -1,5 +1,5 @@
 #VRML v2.0 utf8
-#Bott, Biren, Testault
+#Bott 55775, Biren 52575, Testault 55320
 
 Background {
 	groundColor [0.466, 0.733, 0.164, 0.466, 0.733, 0.164]
@@ -15,7 +15,7 @@ DEF Minion Group {
 	children [
 		Transform {
 			rotation 1 0 0 0.2
-			translation 0 -20 -70
+			translation -20 -20 -70
 			children [
 				#Kopf
 				Transform {
@@ -466,6 +466,209 @@ DEF Minion Group {
 					]
 				}
 				#MINION2 ENDE ------------------------------------------
+				
+				
+				#MINION3 ANFANG --------------------------------------------
+				Transform {
+					rotation 1 0 0 -0.4
+					translation 20 12 -40
+					children [
+					Transform {
+						children [
+							DEF Hirn Shape {
+								appearance DEF BrainAppearance Appearance {
+								texture ImageTexture {
+									url "./brain.png"
+									repeatS FALSE
+									repeatT FALSE
+									}
+								}
+								geometry Sphere {
+									radius 7.5
+								}
+							}
+						]
+					}
+					Transform {
+						translation 0 -4.5 0
+						children [
+							DEF ZombieBauch Shape {
+								appearance DEF ZombieAppearance Appearance {
+									material Material {diffuseColor 0.0 0.59765625 0.19921875}
+								}
+								geometry Cylinder {
+									height 15
+									radius 8.03
+									bottom FALSE
+									side TRUE
+									top TRUE
+								}
+							}
+							# Mund
+							Transform {
+								scale 1.0 1.0 0.1
+								translation 0 0 8.1
+								children [
+									DEF Mund Shape {
+										appearance Appearance {
+											material Material {
+												diffuseColor 0 0 0
+											}
+										}
+										geometry Cone {
+											bottomRadius 4
+											height 1.0
+											bottom FALSE
+											side TRUE
+										}
+									}
+								]
+							}
+						]
+					}
+					#Augen
+					Transform {
+						scale 1.5 1.5 1.5
+						translation -3 1 7
+						children [
+							USE Auge
+						]
+					}
+					Transform {
+						scale 1.5 1.5 1.5
+						translation 3 1 7
+						children [
+							USE Auge
+						]
+					}
+					Transform {
+						translation 0 1 0
+						children [
+							USE Brille
+						]
+					}
+					Transform {
+						translation -5 -10 0
+						rotation 0 0 1 1.8
+						children [
+						DEF Hosentraeger Shape {
+								appearance USE JeansAppearance
+								geometry Cylinder {
+									height 1
+									radius 8.1
+								}
+							}
+						]
+					}
+					Transform {
+						translation 5 -10 0
+						rotation 0 0 1 1.34
+						children [
+							USE Hosentraeger
+						]
+					}
+					Transform {
+						scale 0.7 0.7 0.7
+						translation 7 -7 7
+						rotation 1 0 0 1.57
+						children [
+							DEF ZombieArm Group {
+								children [
+									#Arm
+									Shape {
+										appearance USE ZombieAppearance
+										geometry Cylinder {
+											height 12
+											radius 1
+										}
+									}
+									Transform {
+										translation 0 6 0
+										children [
+											#Hand
+											Shape {
+												appearance USE LeaderAppearance
+												geometry Sphere {
+													radius 1.4
+												}
+											}
+											#Finger
+											Transform {
+												translation 0 2 0
+												children [
+													USE Finger
+												]
+											}
+											Transform {
+												translation -1.5 1.5 0
+												rotation 0 0 1 0.6
+												children [
+													USE Finger
+												]
+											}
+											Transform {
+												translation 1.5 1.5 0
+												rotation 0 0 1 5.68
+												children [
+													USE Finger
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+					Transform {
+						scale 0.7 0.7 0.7
+						translation -7 -7 7
+						rotation 1 0 0 1.57
+						children [
+							USE ZombieArm
+						]
+					}
+					Transform {
+						translation 0 -12 0
+						children [
+							USE Unterleib
+						]
+					}
+				]
+				}
+				#Bein Links
+				Transform {
+					translation 16 -8 -36
+					children [
+						USE Bein
+					]
+				}
+				#Bein Rechts
+				Transform {
+					translation 24 -8 -36
+					children [
+						USE Bein
+					]
+				}
+				#MINION3 ENDE ------------------------------------------
+			]
+		}
+		Transform {
+			translation 8 6 -40
+			children [
+				Shape {
+					appearance Appearance {
+						 material Material { diffuseColor 0 0 0 }
+					}
+					geometry Text {
+					   string ["BRAAAINS ..."]
+					   fontStyle FontStyle {
+									family  "SANS"
+									style   "BOLD"
+									size    2
+									justify "MIDDLE"
+								 }
+					}
+				}
 			]
 		}
 	]
