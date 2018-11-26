@@ -1,5 +1,5 @@
 #VRML v2.0 utf8
-
+#http://rvirtual.free.fr/programmation/VRML/tuto_eng/tut13.html
 #IndexedFaceSet example: a pyramid
 Background {
 	groundColor [0.466, 0.733, 0.164, 0.466, 0.733, 0.164]
@@ -17,10 +17,11 @@ DEF Reichstag Group {
 			translation -20.5 5 -30
 			children [
 				Shape {
-					appearance Appearance{
-						material Material { 
-						}
-					}
+					appearance Appearance {
+      				texture ImageTexture {
+        				 url "brick.jpg"
+      					}
+   					}
 					geometry IndexedFaceSet {
 						coord Coordinate {
 									point [
