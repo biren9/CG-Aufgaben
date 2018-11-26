@@ -1,36 +1,60 @@
 #VRML v2.0 utf8
 
 #IndexedFaceSet example: a pyramid
-Shape {
-	appearance Appearance{
-		material Material { 
-			diffuseColor     1 0 0 #simple red
-			}
-		}
-	geometry IndexedFaceSet {
-		coord Coordinate {
-                    point [
-				# bottom 
-				-1.0 -1.0 1.0,	#vertex 0
-				1.0 -1.0 1.0,	#vertex 1
-				1.0 -1.0 -1.0,	#vertex 2
-				-1.0 -1.0 -1.0,	#vertex 3
-				# top
-				0.0 1.0 0.0		#vertex 4
-                    ]
-                }
-		coordIndex [
-			#bottom square
-			 0, 3, 2, 1, 0, -1,
-			#side1
-			 0, 1, 4, -1,
-			#side2
-			 1, 2, 4, -1,
-			#side3
-			 2, 3, 4, -1,
-			#side4
-			 3, 0, 4, -1,
+
+Background {
+	groundColor [0.466, 0.733, 0.164, 0.466, 0.733, 0.164]
+	groundAngle [3.14, 1.57]
+	skyColor [0.129, 0.396, 0.815]
+}
+
+DirectionalLight {
+  direction 0 0 0
+}
+
+DEF Reichstag Group {
+	children [
+		Transform {
+			translation -68.5 0 -300
+			children [
+				Shape {
+					appearance Appearance{
+						material Material { 
+						}
+					}
+					geometry IndexedFaceSet {
+						colorPerVertex FALSE
+						coord Coordinate {
+									point [
+										# Bottom
+										0 0 0,
+										137 0 0,
+										137 0 104,
+										0 0 104,
+										# top
+										0.0 47.5 0.0,
+										137 47.5 0,
+										137 47.5 104,
+										0 47.5 104
+									]
+								}
+						color Color {
+							color [0.8 0.8 0.8]
+						}
+						colorIndex [0 0 0 0 0 0]
+						coordIndex [
+							#Boden Platte
+							0, 1, 2, 3, -1,
+ 	 						4, 5, 6, 7, -1,
+							#Wände
+							0, 4, 5, 1, -1,
+							1, 5, 6, 2, -1,
+							2, 6, 7, 3, -1,
+							3, 7, 4, 0, -1
+						]
+					}
+				}
 			]
-			
-	}
+		}
+	]
 }
