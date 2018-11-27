@@ -16,7 +16,7 @@ DEF Reichstag Group {
 		Transform {
 			translation 0 0 0
 			children [
-				DEF Turm Shape {{
+				DEF Turm Shape {
 					appearance Appearance {
       				texture ImageTexture {
         				 url "brick.jpg"
@@ -116,9 +116,14 @@ DEF Reichstag Group {
 		}
 
 		Transform {
-			translation 0 0 0
+			translation 5 0 18
 			children [
 				DEF AussenMauer Shape {
+					appearance Appearance {
+      				texture ImageTexture {
+        				 url "brick.jpg"
+      					}
+   					}
 					geometry IndexedFaceSet {
 						coord Coordinate {
 							point [
@@ -131,13 +136,51 @@ DEF Reichstag Group {
 								14 30 68
 								0 30 68,
 							]
-							coordIndex [
-								0 1 2 3 -1
-							]
 						}
+						coordIndex [
+							0 1 2 3 -1
+							4 7 6 5 -1
+							0 3 7 4 -1
+							1 0 4 5 -1
+							2 1 5 6 -1
+							3 2 6 7 -1
+						]
 					}
 				}
 			]
 		}
+		Transform {
+			translation 123 0 18
+			children [
+				USE AussenMauer
+			]
+		}
+		Transform {
+			rotation 0 1 0 1.57
+			translation 20 0 18
+			scale 1 1 1.5
+			children [
+				USE AussenMauer
+			]
+		}
+		#Vorderseite
+		Transform {
+			rotation 0 1 0 1.57
+			translation 20 0 100
+			scale 2 1 1.5
+			children [
+				USE AussenMauer
+			]
+		}
+
+		#Innenmauer
+		Transform {
+			translation 50 0 5
+			scale 3 1 1
+			children [
+				USE AussenMauer
+			]
+		}
+		
 	]
 }
