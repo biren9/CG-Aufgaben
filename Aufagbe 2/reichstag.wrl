@@ -13,7 +13,7 @@ DirectionalLight {
 
 Transform {
 	translation -80 0 -300
-	rotation -1 -1 0 0.4
+	rotation 1 1 0 0.4
 	children [
 		DEF Reichstag Group {
 			children [
@@ -128,7 +128,7 @@ Transform {
 								url "mauer.png"
 								}
 							}
-							geometry IndexedFaceSet {
+							geometry DEF IndexedFaceSetMauer  IndexedFaceSet {
 								texCoord TextureCoordinate { 
 									point [  0 0, 
 										1 0, 
@@ -188,7 +188,14 @@ Transform {
 					translation 20 0 100
 					scale 2 1 1.5
 					children [
-						USE AussenMauer
+						Shape {
+							appearance Appearance {
+								texture ImageTexture {
+									url "brick.jpg"
+									}
+								}
+							geometry USE IndexedFaceSetMauer
+						}
 					]
 				}
 
