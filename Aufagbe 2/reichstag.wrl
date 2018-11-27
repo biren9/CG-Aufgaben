@@ -125,7 +125,7 @@ Transform {
 						DEF AussenMauer Shape {
 							appearance Appearance {
 							texture ImageTexture {
-								url "mauer.png"
+								url "mauer_seite.png"
 								}
 							}
 							geometry DEF IndexedFaceSetMauer  IndexedFaceSet {
@@ -194,7 +194,7 @@ Transform {
 						Shape {
 							appearance Appearance {
 								texture ImageTexture {
-									url "brick.jpg"
+									url "mauer.png"
 									}
 								}
 							geometry USE IndexedFaceSetMauer
