@@ -181,6 +181,26 @@ DEF Reichstag Group {
 				USE AussenMauer
 			]
 		}
+
+		#Kuppel
+		Transform {
+			translation 71 30 40
+			children [
+				Shape {
+					appearance  Appearance {
+						material Material {
+							ambientIntensity  0.0
+							diffuseColor      0.01 0.01 0.01
+							specularColor     0.5 0.5 0.5
+							shininess         32
+						}
+					}
+					geometry Sphere {
+						radius 20
+					}
+				}
+			]
+		}
 		
 	]
 }
