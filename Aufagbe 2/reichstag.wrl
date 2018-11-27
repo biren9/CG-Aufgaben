@@ -125,10 +125,25 @@ Transform {
 						DEF AussenMauer Shape {
 							appearance Appearance {
 							texture ImageTexture {
-								url "brick.jpg"
+								url "mauer.png"
 								}
 							}
 							geometry IndexedFaceSet {
+								texCoord TextureCoordinate { 
+									point [  0 0, 
+										1 0, 
+									1 0.39,  
+										0 0.39,  
+										] 
+									} 
+								texCoordIndex [ 
+									0 1 2 3 -1, 
+									0 1 2 3 -1, 
+									0 1 2 3 -1, 
+									0 1 2 3 -1, 
+									0 1 2 3 -1, 
+									0 1 2 3 -1, 
+								]
 								coord Coordinate {
 									point [
 										0 0 0,
