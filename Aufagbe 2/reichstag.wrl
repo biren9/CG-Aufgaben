@@ -13,7 +13,7 @@ DirectionalLight {
 
 Transform {
 	translation -80 0 -300
-	rotation 1 1 0 0.4
+	rotation -1 -1 0 0.4
 	children [
 		DEF Reichstag Group {
 			children [
@@ -201,6 +201,37 @@ Transform {
 					scale 3 1 0.8
 					children [
 						USE AussenMauer
+					]
+				}
+
+				Transform {
+					translation 50 30 90
+					children [
+						Shape {
+							appearance Appearance {
+							}
+							geometry IndexedFaceSet {
+								coord Coordinate {
+									point [
+										0 0 0,
+										40 0 0,
+										20 15 0,
+
+										0 0 10,
+										40 0 10,
+										20 15 10
+									]
+								}
+								coordIndex [
+									0 2 1 -1
+									3 4 5 -1
+
+									0 3 5 2 -1
+									0 1 4 3 -1
+									1 2 5 4 -1
+								]
+							}
+						}
 					]
 				}
 
