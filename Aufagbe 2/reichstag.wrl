@@ -175,8 +175,8 @@ DEF Reichstag Group {
 
 		#Innenmauer
 		Transform {
-			translation 50 0 5
-			scale 3 1 1
+			translation 50 0 18
+			scale 3 1 0.8
 			children [
 				USE AussenMauer
 			]
