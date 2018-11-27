@@ -14,59 +14,55 @@ DirectionalLight {
 DEF Reichstag Group {
 	children [
 		Transform {
-			translation -20.5 5 -30
+			translation 0 0 0
 			children [
-				Shape {
-					appearance Appearance{
-						material Material { 
-						}
-					}
+				DEF Turm Shape {
 					geometry IndexedFaceSet {
 						coord Coordinate {
-									point [
-										# Bottom
-										6 0 0,
-										18.5 0 0,
-										18.5 0 2,
-										20.5 0 2,
-										20.5 0 4,
-										22.5 0 4,
-										22.5 0 17,
-										20.5 0 17,
-										20.5 0 19,
-										18.5 0 19,
-										18.5 0 21,
-										6 0 21,
-										6 0 19,
-										4 0 19,
-										4 0 17,
-										2 0 17,
-										2 0 4,
-										4 0 4,
-										4 0 2,
-										6 0 2,
-										6 47.5 0,
-										18.5 47.5 0,
-										18.5 47.5 2,
-										20.5 47.5 2,
-										20.5 47.5 4,
-										22.5 47.5 4,
-										22.5 47.5 17,
-										20.5 47.5 17,
-										20.5 47.5 19,
-										18.5 47.5 19,
-										18.5 47.5 21,
-										6 47.5 21,
-										6 47.5 19,
-										4 47.5 19,
-										4 47.5 17,
-										2 47.5 17,
-										2 47.5 4,
-										4 47.5 4,
-										4 47.5 2,
-										6 47.5 2,
-									]
-								}
+							point [
+								# Bottom
+								6 0 0,
+								18.5 0 0,
+								18.5 0 2,
+								20.5 0 2,
+								20.5 0 4,
+								22.5 0 4,
+								22.5 0 17,
+								20.5 0 17,
+								20.5 0 19,
+								18.5 0 19,
+								18.5 0 21,
+								6 0 21,
+								6 0 19,
+								4 0 19,
+								4 0 17,
+								2 0 17,
+								2 0 4,
+								4 0 4,
+								4 0 2,
+								6 0 2,
+								6 40 0,
+								18.5 40 0,
+								18.5 40 2,
+								20.5 40 2,
+								20.5 40 4,
+								22.5 40 4,
+								22.5 40 17,
+								20.5 40 17,
+								20.5 40 19,
+								18.5 40 19,
+								18.5 40 21,
+								6 40 21,
+								6 40 19,
+								4 40 19,
+								4 40 17,
+								2 40 17,
+								2 40 4,
+								4 40 4,
+								4 40 2,
+								6 40 2,
+							]
+						}
 						coordIndex [
 							0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 -1 
 							39 38 37 36 35 34 33 32 31 30 29 28 27 26 25 24 23 22 21 20 -1
@@ -91,6 +87,49 @@ DEF Reichstag Group {
 							 38 39 19 18 -1
 							 39 20 0 19 -1
 						]
+					}
+				}
+			]
+		}
+		Transform {
+			translation 119 0 0
+			children [
+				USE Turm
+			]
+		}
+		Transform {
+			translation 119 0 86
+			children [
+				USE Turm
+			]
+		}
+		Transform {
+			translation 0 0 86
+			children [
+				USE Turm
+			]
+		}
+
+		Transform {
+			translation 0 0 0
+			children [
+				DEF AussenMauer Shape {
+					geometry IndexedFaceSet {
+						coord Coordinate {
+							point [
+								0 0 0,
+								14 0 0,
+								14 0 68
+								0 0 68,
+								0 30 0,
+								14 30 0,
+								14 30 68
+								0 30 68,
+							]
+							coordIndex [
+								0 1 2 3 -1
+							]
+						}
 					}
 				}
 			]
